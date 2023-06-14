@@ -1,20 +1,17 @@
 package com.solvd.laba.model;
 
-import enums.SizeType;
-
 import java.util.Objects;
 
 public class ClothesComplect {
     private long id;
     private long serialNumber;
     private long stockId;
-    private SizeType sizeType;
+    private String sizeType;
 
     ClothesComplect(){
-
     }
 
-    public ClothesComplect(long serialNumber, long stockId, SizeType sizeType) {
+    public ClothesComplect(long serialNumber, long stockId, String sizeType) {
         this.serialNumber = serialNumber;
         this.stockId = stockId;
         this.sizeType = sizeType;
@@ -44,11 +41,11 @@ public class ClothesComplect {
         this.stockId = stockId;
     }
 
-    public SizeType getSizeType() {
+    public String getSizeType() {
         return sizeType;
     }
 
-    public void setSizeType(SizeType sizeType) {
+    public void setSizeType(String sizeType) {
         this.sizeType = sizeType;
     }
 

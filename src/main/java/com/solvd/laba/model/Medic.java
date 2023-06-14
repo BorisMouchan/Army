@@ -2,17 +2,16 @@ package com.solvd.laba.model;
 
 import java.util.Objects;
 
-public class StockManagers extends Persons{
-
+public class Medic extends Person{
     private long id;
-    private long stockId;
+    private String specialization;
     private long personId;
 
-    public StockManagers(){
+    public Medic(){
     }
 
-    public StockManagers(long stockId, long personId) {
-        this.stockId = stockId;
+    public Medic(String specialization, long personId) {
+        this.specialization = specialization;
         this.personId = personId;
     }
 
@@ -26,12 +25,12 @@ public class StockManagers extends Persons{
         this.id = id;
     }
 
-    public long getStockId() {
-        return stockId;
+    public String getSpecialization() {
+        return specialization;
     }
 
-    public void setStockId(long stockId) {
-        this.stockId = stockId;
+    public void setSpecialization(String specialization) {
+        this.specialization = specialization;
     }
 
     public long getPersonId() {
@@ -47,20 +46,20 @@ public class StockManagers extends Persons{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        StockManagers that = (StockManagers) o;
-        return id == that.id && stockId == that.stockId && personId == that.personId;
+        Medic medics = (Medic) o;
+        return id == medics.id && personId == medics.personId && Objects.equals(specialization, medics.specialization);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), id, stockId, personId);
+        return Objects.hash(super.hashCode(), id, specialization, personId);
     }
 
     @Override
     public String toString() {
-        return "StockManagers{" +
+        return "Medic{" +
                 "id=" + id +
-                ", stockId=" + stockId +
+                ", specialization='" + specialization + '\'' +
                 ", personId=" + personId +
                 '}';
     }

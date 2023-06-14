@@ -24,7 +24,7 @@ public class AddressDAO implements IAddressDAO {
     @Override
     public void saveEntity(Address address) {
         Connection connection = pool.getConnection();
-        String sql = "INSERT INTO ADDRESS (CITY,STREET) VALUES((?),(?))";
+        String sql = "INSERT INTO ADDRESSES (CITY,STREET) VALUES((?),(?))";
         try (PreparedStatement pr = connection.prepareStatement(sql)) {
             pr.setString(1, address.getCity());
             pr.setString(2, address.getStreet());
@@ -46,7 +46,7 @@ public class AddressDAO implements IAddressDAO {
     public List<Address> getCityByStreet(String street) {
         Connection connection = pool.getConnection();
         List<Address> resultList = new ArrayList<>();
-        String sql = "SELECT * FROM ADDRESS WHERE street = (?)";
+        String sql = "SELECT * FROM ADDRESSES WHERE street = (?)";
         try (PreparedStatement pr = connection.prepareStatement(sql)) {
             pr.setString(1, street);
             pr.execute();
@@ -78,7 +78,7 @@ public class AddressDAO implements IAddressDAO {
         public Address getEntityById(long id) {
             Connection connection = pool.getConnection();
             Address result = new Address();
-            String sql = "SELECT * FROM ADDRESS WHERE id = (?)";
+            String sql = "SELECT * FROM ADDRESSES WHERE id = (?)";
             try (PreparedStatement pr = connection.prepareStatement(sql)) {
                 pr.setLong(1, id);
                 pr.execute();
@@ -108,7 +108,7 @@ public class AddressDAO implements IAddressDAO {
         public List<Address> getAll () {
             Connection connection = pool.getConnection();
             List<Address> resultList = new ArrayList<>();
-            String sql = "SELECT * FROM ADDRESS ";
+            String sql = "SELECT * FROM ADDRESSES ";
             try {
                 PreparedStatement pr = connection.prepareStatement(sql);
                 pr.execute();
@@ -137,7 +137,7 @@ public class AddressDAO implements IAddressDAO {
         @Override
         public void updateEntity (Address address){
             Connection connection = pool.getConnection();
-            String sql = "UPDATE ADDRESS SET city = (?), street = (?)" +  "where id=(?)";
+            String sql = "UPDATE ADDRESSES SET city = (?), street = (?)" +  "where id=(?)";
             try {
                 PreparedStatement pr = connection.prepareStatement(sql);
                 pr.setString(1, address.getCity());
@@ -163,7 +163,7 @@ public class AddressDAO implements IAddressDAO {
         @Override
         public void removeEntity ( long id){
             Connection connection = pool.getConnection();
-            String sql = "DELETE FROM ADDRESS where id = (?)";
+            String sql = "DELETE FROM ADDRESSES where id = (?)";
             try (PreparedStatement pr = connection.prepareStatement(sql)) {
                 pr.setLong(1, id);
                 pr.executeUpdate();

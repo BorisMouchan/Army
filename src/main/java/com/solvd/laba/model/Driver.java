@@ -1,20 +1,18 @@
 package com.solvd.laba.model;
 
-import enums.DriveCategory;
-
 import java.util.Objects;
 
-public class Drivers extends Persons{
+public class Driver extends Person{
 
     private long id;
     private long personId;
     private long soldierId;
-    private DriveCategory driveCategory;
+    private String driveCategory;
 
-    public Drivers(){
+    public Driver(){
     }
 
-    public Drivers(long personId, long soldierId, DriveCategory driveCategory) {
+    public Driver(long personId, long soldierId, String driveCategory) {
         this.personId = personId;
         this.soldierId = soldierId;
         this.driveCategory = driveCategory;
@@ -46,11 +44,11 @@ public class Drivers extends Persons{
         this.soldierId = soldierId;
     }
 
-    public DriveCategory getDriveCategory() {
+    public String getDriveCategory() {
         return driveCategory;
     }
 
-    public void setDriveCategory(DriveCategory driveCategory) {
+    public void setDriveCategory(String driveCategory) {
         this.driveCategory = driveCategory;
     }
 
@@ -59,7 +57,7 @@ public class Drivers extends Persons{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Drivers drivers = (Drivers) o;
+        Driver drivers = (Driver) o;
         return id == drivers.id && personId == drivers.personId && soldierId == drivers.soldierId && driveCategory == drivers.driveCategory;
     }
 
@@ -70,7 +68,7 @@ public class Drivers extends Persons{
 
     @Override
     public String toString() {
-        return "Drivers{" +
+        return "Driver{" +
                 "id=" + id +
                 ", personId=" + personId +
                 ", soldierId=" + soldierId +

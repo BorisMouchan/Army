@@ -2,15 +2,15 @@ package com.solvd.laba.model;
 
 import java.util.Objects;
 
-public class Squads {
+public class Squad {
     private long id;
     private String squadName;
     private long commanderId;
 
-    public Squads(){
+    public Squad(){
     }
 
-    public Squads(String squadName, long commanderId) {
+    public Squad(String squadName, long commanderId) {
         this.squadName = squadName;
         this.commanderId = commanderId;
     }
@@ -43,7 +43,7 @@ public class Squads {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Squads squads = (Squads) o;
+        Squad squads = (Squad) o;
         return id == squads.id && commanderId == squads.commanderId && Objects.equals(squadName, squads.squadName);
     }
 
@@ -54,7 +54,7 @@ public class Squads {
 
     @Override
     public String toString() {
-        return "Squads{" +
+        return "Squad{" +
                 "id=" + id +
                 ", squadName='" + squadName + '\'' +
                 ", commanderId=" + commanderId +

@@ -2,17 +2,16 @@ package com.solvd.laba.model;
 
 import java.util.Objects;
 
-public class Guns {
+public class Gun {
     private long id;
     private long serialNumber;
     private long caliber;
 
 
-    public Guns(){
-
+    public Gun(){
     }
 
-    public Guns(long serialNumber, long caliber) {
+    public Gun(long serialNumber, long caliber) {
         this.serialNumber = serialNumber;
         this.caliber = caliber;
     }
@@ -46,7 +45,7 @@ public class Guns {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Guns guns = (Guns) o;
+        Gun guns = (Gun) o;
         return id == guns.id && serialNumber == guns.serialNumber && caliber == guns.caliber;
     }
 
@@ -57,7 +56,7 @@ public class Guns {
 
     @Override
     public String toString() {
-        return "Guns{" +
+        return "Gun{" +
                 "id=" + id +
                 ", serialNumber=" + serialNumber +
                 ", caliber=" + caliber +

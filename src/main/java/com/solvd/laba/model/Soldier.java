@@ -2,17 +2,17 @@ package com.solvd.laba.model;
 
 import java.util.Objects;
 
-public class Soldiers extends Persons{
+public class Soldier extends Person{
     private long id;
     private String title;
     private long personsId;
     private long squadId;
 
 
-    public Soldiers(){
+    public Soldier(){
     }
 
-    public Soldiers(String title, long personsId, long squadId) {
+    public Soldier(String title, long personsId, long squadId) {
         this.title = title;
         this.personsId = personsId;
         this.squadId = squadId;
@@ -57,7 +57,7 @@ public class Soldiers extends Persons{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Soldiers soldiers = (Soldiers) o;
+        Soldier soldiers = (Soldier) o;
         return id == soldiers.id && personsId == soldiers.personsId && squadId == soldiers.squadId && Objects.equals(title, soldiers.title);
     }
 
@@ -68,7 +68,7 @@ public class Soldiers extends Persons{
 
     @Override
     public String toString() {
-        return "Soldiers{" +
+        return "Soldier{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", personsId=" + personsId +

@@ -2,16 +2,17 @@ package com.solvd.laba.model;
 
 import java.util.Objects;
 
-public class Medics extends Persons{
+public class StockManager extends Person{
+
     private long id;
-    private String specialization;
+    private long stockId;
     private long personId;
 
-    public Medics(){
+    public StockManager(){
     }
 
-    public Medics(String specialization, long personId) {
-        this.specialization = specialization;
+    public StockManager(long stockId, long personId) {
+        this.stockId = stockId;
         this.personId = personId;
     }
 
@@ -25,12 +26,12 @@ public class Medics extends Persons{
         this.id = id;
     }
 
-    public String getSpecialization() {
-        return specialization;
+    public long getStockId() {
+        return stockId;
     }
 
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
+    public void setStockId(long stockId) {
+        this.stockId = stockId;
     }
 
     public long getPersonId() {
@@ -46,20 +47,20 @@ public class Medics extends Persons{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Medics medics = (Medics) o;
-        return id == medics.id && personId == medics.personId && Objects.equals(specialization, medics.specialization);
+        StockManager that = (StockManager) o;
+        return id == that.id && stockId == that.stockId && personId == that.personId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), id, specialization, personId);
+        return Objects.hash(super.hashCode(), id, stockId, personId);
     }
 
     @Override
     public String toString() {
-        return "Medics{" +
+        return "StockManager{" +
                 "id=" + id +
-                ", specialization='" + specialization + '\'' +
+                ", stockId=" + stockId +
                 ", personId=" + personId +
                 '}';
     }

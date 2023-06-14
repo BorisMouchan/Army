@@ -2,16 +2,16 @@ package com.solvd.laba.model;
 
 import java.util.Objects;
 
-public class Commanders extends Persons{
+public class Commander extends Person{
     private long id;
     private String title;
     private long personsId;
     private long squadId;
 
-    public Commanders() {
+    public Commander() {
     }
 
-    public Commanders(String title, long personsId, long squadId) {
+    public Commander(String title, long personsId, long squadId) {
         this.title = title;
         this.personsId = personsId;
         this.squadId = squadId;
@@ -56,7 +56,7 @@ public class Commanders extends Persons{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Commanders that = (Commanders) o;
+        Commander that = (Commander) o;
         return id == that.id && personsId == that.personsId && Objects.equals(title, that.title);
     }
 
@@ -67,7 +67,7 @@ public class Commanders extends Persons{
 
     @Override
     public String toString() {
-        return "Commanders{" +
+        return "Commander{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", personsId=" + personsId +

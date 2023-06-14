@@ -1,7 +1,7 @@
 package dao.jdbcMySQLImpl;
 
 import com.solvd.laba.model.Address;
-import com.solvd.laba.model.Commanders;
+import com.solvd.laba.model.Commander;
 import dao.ICommandersDAO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,13 +24,13 @@ public class CommandersDAO implements ICommandersDAO {
 
 
     @Override
-    public void saveEntity(Commanders commanders) {
+    public void saveEntity(Commander commander) {
         Connection connection = pool.getConnection();
         String sql = "INSERT INTO COMMANDERS (TITLE,PERSON_ID,SQUAD_ID) VALUES((?),(?),(?))";
         try (PreparedStatement pr = connection.prepareStatement(sql)) {
-            pr.setString(1, commanders.getTitle());
-            pr.setLong(2, commanders.getPersonsId());
-            pr.setLong(3, commanders.getSquadId());
+            pr.setString(1, commander.getTitle());
+            pr.setLong(2, commander.getPersonsId());
+            pr.setLong(3, commander.getSquadId());
             pr.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -46,9 +46,9 @@ public class CommandersDAO implements ICommandersDAO {
     }
 
     @Override
-    public Commanders getEntityById(long id) {
+    public Commander getEntityById(long id) {
         Connection connection = pool.getConnection();
-        Commanders result = new Commanders();
+        Commander result = new Commander();
         String sql = "SELECT * FROM COMMANDERS WHERE id = (?)";
         try (PreparedStatement pr = connection.prepareStatement(sql)) {
             pr.setLong(1, id);
@@ -77,21 +77,21 @@ public class CommandersDAO implements ICommandersDAO {
     }
 
     @Override
-    public List<Commanders> getAll () {
+    public List<Commander> getAll () {
         Connection connection = pool.getConnection();
-        List<Commanders> resultList = new ArrayList<>();
+        List<Commander> resultList = new ArrayList<>();
         String sql = "SELECT * FROM COMMANDERS ";
         try {
             PreparedStatement pr = connection.prepareStatement(sql);
             pr.execute();
             ResultSet resultSet = pr.getResultSet();
             while (resultSet.next()) {
-                Commanders commanders = new Commanders();
-                commanders.setId(resultSet.getInt("id"));
-                commanders.setTitle(resultSet.getString("Title"));
-                commanders.setPersonsId(resultSet.getLong("Person_id"));
-                commanders.setSquadId(resultSet.getLong("Squad_id"));
-                resultList.add(commanders);
+                Commander commander = new Commander();
+                commander.setId(resultSet.getInt("id"));
+                commander.setTitle(resultSet.getString("Title"));
+                commander.setPersonsId(resultSet.getLong("Person_id"));
+                commander.setSquadId(resultSet.getLong("Squad_id"));
+                resultList.add(commander);
             }
         } catch (SQLException e) {
             LOGGER.error(e.getMessage());
@@ -108,15 +108,15 @@ public class CommandersDAO implements ICommandersDAO {
     }
 
     @Override
-    public void updateEntity(Commanders commanders) {
+    public void updateEntity(Commander commander) {
         Connection connection = pool.getConnection();
         String sql = "UPDATE COMMANDERS SET title = (?), Person_id = (?), Squad_id = (?)" +  "where id=(?)";
         try {
             PreparedStatement pr = connection.prepareStatement(sql);
-            pr.setString(1, commanders.getTitle());
-            pr.setLong(2, commanders.getPersonsId());
-            pr.setLong(3, commanders.getSquadId());
-            pr.setLong(4,commanders.getId());
+            pr.setString(1, commander.getTitle());
+            pr.setLong(2, commander.getPersonsId());
+            pr.setLong(3, commander.getSquadId());
+            pr.setLong(4,commander.getId());
             pr.executeUpdate();
 
         } catch (SQLException e) {
@@ -154,10 +154,10 @@ public class CommandersDAO implements ICommandersDAO {
 }
 
     @Override
-    public List<Commanders> getCommanderByPersonId(long personsId) {
+    public List<Commander> getCommanderByPersonId(long personsId) {
         Connection connection = pool.getConnection();
         String sql ="SELECT * FROM COMMANDERS where Person_id=(?)";
-        List<Commanders> resultList = new ArrayList<>();
+        List<Commander> resultList = new ArrayList<>();
         try {
             PreparedStatement pr = connection.prepareStatement(sql);
             pr.setLong(1,personsId);
@@ -165,13 +165,13 @@ public class CommandersDAO implements ICommandersDAO {
 
             ResultSet rs = pr.getResultSet();
             while (rs.next()){
-                Commanders commanders = new Commanders();
-                commanders.setId(rs.getLong("id"));
-                commanders.setTitle(rs.getString("Title"));
-                commanders.setPersonsId(rs.getLong("Person_id"));
-                commanders.setSquadId(rs.getLong("Squad_id"));
-                commanders.setName(rs.getString("Name"));
-                resultList.add(commanders);
+                Commander commander = new Commander();
+                commander.setId(rs.getLong("id"));
+                commander.setTitle(rs.getString("Title"));
+                commander.setPersonsId(rs.getLong("Person_id"));
+                commander.setSquadId(rs.getLong("Squad_id"));
+                commander.setName(rs.getString("Name"));
+                resultList.add(commander);
             }
         } catch (SQLException e) {
             LOGGER.error(e.getMessage());

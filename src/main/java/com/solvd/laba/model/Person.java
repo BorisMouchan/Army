@@ -2,7 +2,7 @@ package com.solvd.laba.model;
 
 import java.util.Objects;
 
-public class Persons {
+public class Person {
 
     protected long id;
     protected String name;
@@ -10,10 +10,10 @@ public class Persons {
     protected long addressId;
     protected long clothesComplectId;
 
-    public Persons(){
+    public Person(){
     }
 
-    public Persons(String name, int age, long addressId, long clothesComplectId) {
+    public Person(String name, int age, long addressId, long clothesComplectId) {
         this.name = name;
         this.age = age;
         this.addressId = addressId;
@@ -64,7 +64,7 @@ public class Persons {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Persons persons = (Persons) o;
+        Person persons = (Person) o;
         return id == persons.id && age == persons.age && addressId == persons.addressId && clothesComplectId == persons.clothesComplectId && Objects.equals(name, persons.name);
     }
 
@@ -75,7 +75,7 @@ public class Persons {
 
     @Override
     public String toString() {
-        return "Persons{" +
+        return "Person{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +

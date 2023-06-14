@@ -1,7 +1,7 @@
 package dao;
 
-import com.solvd.laba.model.Persons;
+import com.solvd.laba.model.Person;
 
-public interface IPersonsDAO extends IBaseDAO<Persons> {
-    Persons getPersonById(long id);
+public interface IPersonsDAO extends IBaseDAO<Person> {
+    Person getPersonById(long id);
 }

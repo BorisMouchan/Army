@@ -3,9 +3,13 @@ package dao.jdbcMySQLImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 import java.util.Vector;
 
 public class MyConnectionPool {
@@ -31,9 +35,22 @@ public class MyConnectionPool {
     }
 
     public static void create() {
-        String url = "jdbc:mysql://localhost:3306/army";
-        String userName = "root";
-        String password = "Mandar1ne";
+        Properties p = new Properties();
+        FileInputStream fileInputStream;
+        try {
+            fileInputStream = new FileInputStream(System.getProperty("user.dir") + "/src/main/resources/db.properties");
+            p.load(fileInputStream);
+            fileInputStream.close();
+        } catch (FileNotFoundException e) {
+            LOGGER.error(e.getMessage());
+        } catch (IOException e) {
+            LOGGER.error(e.getMessage());
+        }
+
+        String url = p.getProperty("url");
+        String userName = p.getProperty("username");
+        String password = p.getProperty("password");
+
         for (int i = 0; i < INITIAL_POOL_SIZE; i++) {
             freeConnections.add(createConnection(url, userName, password));
         }

@@ -1,7 +1,7 @@
 package dao.jdbcMySQLImpl;
 
-import com.solvd.laba.model.Commanders;
-import com.solvd.laba.model.Guns;
+import com.solvd.laba.model.Commander;
+import com.solvd.laba.model.Gun;
 import dao.IGunsDAO;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,12 +22,12 @@ public class GunsDAO implements IGunsDAO {
     }
 
     @Override
-    public void saveEntity(Guns guns) {
+    public void saveEntity(Gun gun) {
         Connection connection = pool.getConnection();
         String sql = "INSERT INTO GUNS (SERIAL_NUMBER,CALIBER) VALUES((?),(?))";
         try (PreparedStatement pr = connection.prepareStatement(sql)) {
-            pr.setLong(1, guns.getSerialNumber());
-            pr.setLong(2, guns.getCaliber());
+            pr.setLong(1, gun.getSerialNumber());
+            pr.setLong(2, gun.getCaliber());
             pr.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -44,9 +44,9 @@ public class GunsDAO implements IGunsDAO {
     }
 
     @Override
-    public Guns getEntityById(long id) {
+    public Gun getEntityById(long id) {
     Connection connection = pool.getConnection();
-    Guns result = new Guns();
+    Gun result = new Gun();
     String sql = "SELECT * FROM GUNS WHERE id = (?)";
         try (PreparedStatement pr = connection.prepareStatement(sql)) {
         pr.setLong(1, id);
@@ -74,21 +74,21 @@ public class GunsDAO implements IGunsDAO {
 
 
     @Override
-    public List<Guns> getAll() {
+    public List<Gun> getAll() {
         {
             Connection connection = pool.getConnection();
-            List<Guns> resultList = new ArrayList<>();
+            List<Gun> resultList = new ArrayList<>();
             String sql = "SELECT * FROM GUNS ";
             try {
                 PreparedStatement pr = connection.prepareStatement(sql);
                 pr.execute();
                 ResultSet resultSet = pr.getResultSet();
                 while (resultSet.next()) {
-                    Guns guns = new Guns();
-                    guns.setId(resultSet.getInt("id"));
-                    guns.setSerialNumber(resultSet.getLong("Serial_number"));
-                    guns.setCaliber(resultSet.getLong("Caliber"));
-                    resultList.add(guns);
+                    Gun gun = new Gun();
+                    gun.setId(resultSet.getInt("id"));
+                    gun.setSerialNumber(resultSet.getLong("Serial_number"));
+                    gun.setCaliber(resultSet.getLong("Caliber"));
+                    resultList.add(gun);
                 }
             } catch (SQLException e) {
                 LOGGER.error(e.getMessage());
@@ -106,7 +106,7 @@ public class GunsDAO implements IGunsDAO {
     }
 
     @Override
-    public void updateEntity(Guns guns) {
+    public void updateEntity(Gun guns) {
         Connection connection = pool.getConnection();
         String sql = "UPDATE GUNS SET Serial_number = (?), Caliber = (?)" +  "where id=(?)";
         try {
@@ -151,10 +151,10 @@ public class GunsDAO implements IGunsDAO {
     }
 
     @Override
-    public List<Guns> getGunsByCaliber(long caliber) {
+    public List<Gun> getGunsByCaliber(long caliber) {
         Connection connection = pool.getConnection();
         String sql ="SELECT * FROM GUNS where Caliber=(?)";
-        List<Guns> resultList = new ArrayList<>();
+        List<Gun> resultList = new ArrayList<>();
         try {
             PreparedStatement pr = connection.prepareStatement(sql);
             pr.setLong(1,caliber);
@@ -162,11 +162,11 @@ public class GunsDAO implements IGunsDAO {
 
             ResultSet rs = pr.getResultSet();
             while (rs.next()){
-                Guns guns = new Guns();
-                guns.setId(rs.getLong("id"));
-                guns.setSerialNumber(rs.getLong("Serial_number"));
-                guns.setCaliber(rs.getLong("Caliber"));
-                resultList.add(guns);
+                Gun gun = new Gun();
+                gun.setId(rs.getLong("id"));
+                gun.setSerialNumber(rs.getLong("Serial_number"));
+                gun.setCaliber(rs.getLong("Caliber"));
+                resultList.add(gun);
             }
         } catch (SQLException e) {
             LOGGER.error(e.getMessage());

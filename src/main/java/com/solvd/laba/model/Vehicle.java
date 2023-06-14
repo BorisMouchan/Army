@@ -1,22 +1,20 @@
 package com.solvd.laba.model;
 
-import enums.VehicleType;
-
 import java.util.Objects;
 
-public class Vehicles {
+public class Vehicle {
 
     private long id;
     private int year;
     private long stockId;
     private long driverId;
     private int maxSpeed;
-    private VehicleType vehicleType;
+    private String vehicleType;
 
-    public Vehicles(){
+    public Vehicle(){
     }
 
-    public Vehicles(int year, long stockId, long driverId, int maxSpeed, VehicleType vehicleType) {
+    public Vehicle(int year, long stockId, long driverId, int maxSpeed, String vehicleType) {
         this.year = year;
         this.stockId = stockId;
         this.driverId = driverId;
@@ -64,11 +62,11 @@ public class Vehicles {
         this.maxSpeed = maxSpeed;
     }
 
-    public VehicleType getVehicleType() {
+    public String getVehicleType() {
         return vehicleType;
     }
 
-    public void setVehicleType(VehicleType vehicleType) {
+    public void setVehicleType(String vehicleType) {
         this.vehicleType = vehicleType;
     }
 
@@ -76,7 +74,7 @@ public class Vehicles {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Vehicles vehicles = (Vehicles) o;
+        Vehicle vehicles = (Vehicle) o;
         return id == vehicles.id && year == vehicles.year && stockId == vehicles.stockId && driverId == vehicles.driverId && maxSpeed == vehicles.maxSpeed && vehicleType == vehicles.vehicleType;
     }
 
@@ -87,7 +85,7 @@ public class Vehicles {
 
     @Override
     public String toString() {
-        return "Vehicles{" +
+        return "Vehicle{" +
                 "id=" + id +
                 ", year=" + year +
                 ", stockId=" + stockId +
