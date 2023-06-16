@@ -1,29 +1,39 @@
 package com.solvd.laba.model;
 
+import javax.xml.bind.annotation.*;
+
 import java.util.Objects;
 
-public class Soldier extends Person{
+@XmlRootElement(name = "Soldier")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = {"id", "title", "personSoldierId", "squadSoldierId"})
+public class Soldier {
+    @XmlAttribute(name="id")
     private long id;
+    @XmlElement(name="title")
     private String title;
-    private long personsId;
-    private long squadId;
+    @XmlElement(name="personSoldierId")
+    private long personSoldierId;
+    @XmlElement(name="squadSoldierId")
+    private long squadSoldierId;
 
 
     public Soldier(){
     }
 
-    public Soldier(String title, long personsId, long squadId) {
+    public Soldier(long id, String title, long personSoldierId, long squadSoldierId) {
+        this.id = id;
         this.title = title;
-        this.personsId = personsId;
-        this.squadId = squadId;
+        this.personSoldierId = personSoldierId;
+        this.squadSoldierId = squadSoldierId;
     }
 
-    @Override
+
     public long getId() {
         return id;
     }
 
-    @Override
+
     public void setId(long id) {
         this.id = id;
     }
@@ -36,20 +46,20 @@ public class Soldier extends Person{
         this.title = title;
     }
 
-    public long getPersonsId() {
-        return personsId;
+    public long getPersonSoldierIdId() {
+        return personSoldierId;
     }
 
-    public void setPersonsId(long personsId) {
-        this.personsId = personsId;
+    public void setPersonSoldierId(long personSoldierId) {
+        this.personSoldierId = personSoldierId;
     }
 
-    public long getSquadId() {
-        return squadId;
+    public long getSquadSoldierId() {
+        return squadSoldierId;
     }
 
-    public void setSquadId(long squadId) {
-        this.squadId = squadId;
+    public void setSquadSoldierId(long squadSoldierId) {
+        this.squadSoldierId = squadSoldierId;
     }
 
     @Override
@@ -58,12 +68,12 @@ public class Soldier extends Person{
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Soldier soldiers = (Soldier) o;
-        return id == soldiers.id && personsId == soldiers.personsId && squadId == soldiers.squadId && Objects.equals(title, soldiers.title);
+        return id == soldiers.id && personSoldierId == soldiers.personSoldierId && squadSoldierId == soldiers.squadSoldierId && Objects.equals(title, soldiers.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), id, title, personsId, squadId);
+        return Objects.hash(super.hashCode(), id, title, personSoldierId, squadSoldierId);
     }
 
     @Override
@@ -71,8 +81,8 @@ public class Soldier extends Person{
         return "Soldier{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", personsId=" + personsId +
-                ", squadId=" + squadId +
+                ", personSoldierId=" + personSoldierId +
+                ", squadSoldierId=" + squadSoldierId +
                 '}';
     }
 }

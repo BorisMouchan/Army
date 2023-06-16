@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Driver extends Person{
 
     private long id;
-    private long personId;
+    private long personDriverId;
     private long soldierId;
     private String driveCategory;
 
@@ -13,7 +13,7 @@ public class Driver extends Person{
     }
 
     public Driver(long personId, long soldierId, String driveCategory) {
-        this.personId = personId;
+        this.personDriverId = personId;
         this.soldierId = soldierId;
         this.driveCategory = driveCategory;
     }
@@ -28,12 +28,12 @@ public class Driver extends Person{
         this.id = id;
     }
 
-    public long getPersonId() {
-        return personId;
+    public long getPersonDriverId() {
+        return personDriverId;
     }
 
-    public void setPersonId(long personId) {
-        this.personId = personId;
+    public void setPersonDriverId(long personDriverId) {
+        this.personDriverId = personDriverId;
     }
 
     public long getSoldierId() {
@@ -58,19 +58,19 @@ public class Driver extends Person{
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Driver drivers = (Driver) o;
-        return id == drivers.id && personId == drivers.personId && soldierId == drivers.soldierId && driveCategory == drivers.driveCategory;
+        return id == drivers.id && personDriverId == drivers.personDriverId && soldierId == drivers.soldierId && driveCategory == drivers.driveCategory;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), id, personId, soldierId, driveCategory);
+        return Objects.hash(super.hashCode(), id, personDriverId, soldierId, driveCategory);
     }
 
     @Override
     public String toString() {
         return "Driver{" +
                 "id=" + id +
-                ", personId=" + personId +
+                ", personsId=" + personDriverId +
                 ", soldierId=" + soldierId +
                 ", driveCategory=" + driveCategory +
                 '}';

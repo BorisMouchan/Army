@@ -1,17 +1,26 @@
 package com.solvd.laba.model;
 
+import javax.xml.bind.annotation.*;
+
 import java.util.Objects;
 
+@XmlRootElement(name = "Gun")
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(propOrder = {"id", "serialNumber", "caliber"})
 public class Gun {
+    @XmlAttribute(name="id")
     private long id;
+    @XmlElement(name="serialNumber")
     private long serialNumber;
+    @XmlElement(name="caliber")
     private long caliber;
 
 
     public Gun(){
     }
 
-    public Gun(long serialNumber, long caliber) {
+    public Gun(long id,long serialNumber, long caliber) {
+        this.id=id;
         this.serialNumber = serialNumber;
         this.caliber = caliber;
     }

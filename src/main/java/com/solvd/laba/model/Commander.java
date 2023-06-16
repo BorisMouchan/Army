@@ -71,6 +71,7 @@ public class Commander extends Person{
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", personsId=" + personsId +
+                ", squadId=" + squadId +
                 '}';
     }
 }
