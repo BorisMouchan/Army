@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<StockName id="1">
+    <gunsList>
+        <Gun id="1">
+            <serialNumber>33333333</serialNumber>
+            <caliber>33</caliber>
+        </Gun>
+        <Gun id="2">
+            <serialNumber>44444444</serialNumber>
+            <caliber>44</caliber>
+        </Gun>
+        <Gun id="3">
+            <serialNumber>55555555</serialNumber>
+            <caliber>55</caliber>
+        </Gun>
+    </gunsList>
+    <dateLastCheck>1999-11-01</dateLastCheck>
+    <stockManagerId>2</stockManagerId>
+    <boxCount>3</boxCount>
+    <gateKeeper id="1">
+        <title>Recruit</title>
+        <personSoldierId>101</personSoldierId>
+        <squadSoldierId>9</squadSoldierId>
+    </gateKeeper>
+</StockName>

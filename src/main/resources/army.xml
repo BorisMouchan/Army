@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<army xmlns:xs="http://www.w3.org/2001/XMLschema-instance"
+xs:noNamespaceSchemaLocation="army.xsd">
+    <Persons>
+        <Person id="1">
+            <name>Bob</name>
+            <age>25</age>
+            <addressId>1</addressId>
+            <clothesComplectId>1</clothesComplectId>
+        </Person>
+        <Person id="2">
+            <name>Alex</name>
+            <age>35</age>
+            <addressId>2</addressId>
+            <clothesComplectId>3</clothesComplectId>
+        </Person>
+        <Person id="3">
+            <name>Stuart</name>
+            <age>45</age>
+            <addressId>3</addressId>
+            <clothesComplectId>3</clothesComplectId>
+        </Person>
+        <Person id="4">
+            <name>Stuaraaaaaaat</name>
+            <age>45</age>
+            <addressId>3</addressId>
+            <clothesComplectId>3</clothesComplectId>
+        </Person>
+    </Persons>
+    <Commanders>
+        <Commander id="1">
+            <title>Major</title>
+            <personsId>1</personsId>
+            <squadId>1</squadId>
+        </Commander>
+        <Commander id="2">
+            <title>Sergant Boroda</title>
+            <personsId>2</personsId>
+            <squadId>2</squadId>
+        </Commander>
+        <Commander id="3">
+            <title>High-Sergant</title>
+            <personsId>3</personsId>
+            <squadId>3</squadId>
+        </Commander>
+    </Commanders>
+    <Drivers>
+        <Driver id="1">
+            <personDriverId>15</personDriverId>
+            <soldierId>7</soldierId>
+            <driveCategory>A</driveCategory>
+        </Driver>
+        <Driver id="2">
+            <personDriverId>20</personDriverId>
+            <soldierId>2</soldierId>
+            <driveCategory>B</driveCategory>
+        </Driver>
+        <Driver id="3">
+            <personDriverId>33</personDriverId>
+            <soldierId>3</soldierId>
+            <driveCategory>C</driveCategory>
+        </Driver>
+    </Drivers>
+    <Vehicles>
+        <Vehicle id="1">
+            <year>1995</year>
+            <stockId>1</stockId>
+            <driverId>1</driverId>
+            <maxSpeed>80</maxSpeed>
+            <vehicleType>Tank</vehicleType>
+        </Vehicle>
+        <Vehicle id="2">
+            <year>2000</year>
+            <stockId>2</stockId>
+            <driverId>2</driverId>
+            <maxSpeed>90</maxSpeed>
+            <vehicleType>Auto</vehicleType>
+        </Vehicle>
+        <Vehicle id="3">
+            <year>2005</year>
+            <stockId>3</stockId>
+            <driverId>3</driverId>
+            <maxSpeed>100</maxSpeed>
+            <vehicleType>Motocycle</vehicleType>
+        </Vehicle>
+    </Vehicles>
+    <Guns>
+        <Gun id="1">
+            <serialNumber>8989889</serialNumber>
+            <caliber>45</caliber>
+        </Gun>
+        <Gun id="1">
+            <serialNumber>7474747</serialNumber>
+            <caliber>46</caliber>
+        </Gun>
+        <Gun id="1">
+            <serialNumber>56565656</serialNumber>
+            <caliber>42</caliber>
+        </Gun>
+    </Guns>
+</army>
