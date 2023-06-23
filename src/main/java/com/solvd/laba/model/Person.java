@@ -10,7 +10,7 @@ public class Person {
     protected long addressId;
     protected long clothesComplectId;
 
-    public Person(){
+    public Person() {
     }
 
     public Person(String name, int age, long addressId, long clothesComplectId) {

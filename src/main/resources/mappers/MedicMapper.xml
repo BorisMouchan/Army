@@ -1,0 +1,42 @@
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.laba.dao.IMedicDAO">
+    <resultMap id="MedicResultMap" type="Medic" autoMapping="false">
+        <result property="id" column="id"/>
+        <result property="specializationType" column="SpecializationType" jdbcType="VARCHAR"/>
+        <result property="personMedicId" column="Person_medic_id"/>
+    </resultMap>
+    <insert id="saveMedic" parameterType="Medic">
+        <![CDATA[
+        INSERT into MEDICS (SpecializationType,Person_medic_id) values (#{specializationType,typeHandler=org.apache.ibatis.type.EnumTypeHandler},#{personMedicId});
+        ]]>
+    </insert>
+    <select id="getMedicBySpecialization" parameterType="com.solvd.laba.model.Medic" resultMap="MedicResultMap">
+        <![CDATA[
+            SELECT * FROM MEDICS WHERE SpecializationType= #{specializationType,typeHandler=org.apache.ibatis.type.EnumTypeHandler};
+        ]]>
+    </select>
+    <select id="getMedicById" parameterType="com.solvd.laba.model.Medic" resultMap="MedicResultMap">
+        <![CDATA[
+            SELECT * FROM MEDICS WHERE id= #{id};
+        ]]>
+    </select>
+    <select id="getAllMedics" parameterType="com.solvd.laba.model.Medic" resultMap="MedicResultMap">
+        <![CDATA[
+            SELECT * FROM MEDICS;
+        ]]>
+    </select>
+    <update id="updateMedic" parameterType="com.solvd.laba.model.Medic">
+        <![CDATA[
+        UPDATE MEDICS
+        SET
+        SpecializationType=#{specializationType},
+        Person_medic_id=#{personMedicId}
+        WHERE id=#{id};
+        ]]>
+    </update>
+    <delete id="removeEntity" parameterType="com.solvd.laba.model.Medic">
+        <![CDATA[
+            DELETE FROM MEDICS where id=#{id};
+        ]]>
+    </delete>
+</mapper>

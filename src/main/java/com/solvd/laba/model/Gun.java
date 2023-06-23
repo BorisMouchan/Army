@@ -1,5 +1,7 @@
 package com.solvd.laba.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 
 import java.util.Objects;
@@ -8,19 +10,22 @@ import java.util.Objects;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {"id", "serialNumber", "caliber"})
 public class Gun {
-    @XmlAttribute(name="id")
+    @XmlAttribute(name = "id")
+    @JsonProperty("id")
     private long id;
-    @XmlElement(name="serialNumber")
+    @XmlElement(name = "serialNumber")
+    @JsonProperty("serialNumber")
     private long serialNumber;
-    @XmlElement(name="caliber")
+    @XmlElement(name = "caliber")
+    @JsonProperty("caliber")
     private long caliber;
 
 
-    public Gun(){
+    public Gun() {
     }
 
-    public Gun(long id,long serialNumber, long caliber) {
-        this.id=id;
+    public Gun(long id, long serialNumber, long caliber) {
+        this.id = id;
         this.serialNumber = serialNumber;
         this.caliber = caliber;
     }

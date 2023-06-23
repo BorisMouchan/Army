@@ -2,14 +2,14 @@ package com.solvd.laba.model;
 
 import java.util.Objects;
 
-public class Driver extends Person{
+public class Driver extends Person {
 
     private long id;
     private long personDriverId;
     private long soldierId;
     private String driveCategory;
 
-    public Driver(){
+    public Driver() {
     }
 
     public Driver(long personId, long soldierId, String driveCategory) {

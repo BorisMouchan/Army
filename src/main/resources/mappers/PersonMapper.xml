@@ -1,0 +1,46 @@
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.laba.dao.IPersonsDAO">
+    <resultMap id="PersonResultMap" type="Person" autoMapping="false">
+        <result property="id" column="id"/>
+        <result property="name" column="Name"/>
+        <result property="age" column="Age"/>
+        <result property="addressId" column="Address_id"/>
+        <result property="clothesComplectId" column="Clothes_complect_id"/>
+    </resultMap>
+
+    <insert id="saveEntity" parameterType="Person">
+        <![CDATA[
+        INSERT into PERSONS (name,age,address_id,clothes_complect_id) values (#{name},#{age},#{addressId},#{clothesComplectId});
+]]>
+    </insert>
+    <select id="getEntityById" parameterType="long" resultMap="PersonResultMap">
+        <![CDATA[
+        SELECT * FROM PERSONS where id = #{id};
+        ]]>
+    </select>
+    <select id="getAll" resultMap="PersonResultMap">
+    <![CDATA[
+        SELECT * FROM PERSONS;
+        ]]>
+    </select>
+    <update id="updateEntity" parameterType="Person">
+        <![CDATA[
+        UPDATE PERSONS SET
+        name=#{name},
+        age=#{age},
+        address_id=#{addressId},
+        clothes_complect_id=#{clothesComplectId}
+        WHERE id=#{id};
+        ]]>
+    </update>
+    <delete id="removeEntity" parameterType="long">
+        <![CDATA[
+        DELETE FROM PERSONS where id=#{id};
+        ]]>
+    </delete>
+    <select id="getPersonById" parameterType="long" resultMap="PersonResultMap">
+        <![CDATA[
+        SELECT * FROM PERSONS WHERE id = #{id};
+        ]]>
+    </select>
+</mapper>

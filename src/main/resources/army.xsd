@@ -1,91 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="army">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="Persons">
-          <xs:complexType>
+    <xs:element name="army">
+        <xs:complexType>
             <xs:sequence>
-              <xs:element name="Person" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:string" name="name"/>
-                    <xs:element type="xs:float" name="age"/>
-                    <xs:element type="xs:byte" name="addressId"/>
-                    <xs:element type="xs:byte" name="clothesComplectId"/>
-                  </xs:sequence>
-                  <xs:attribute type="xs:long" name="id" />
-                </xs:complexType>
-              </xs:element>
+                <xs:element name="Persons">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Person" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="name"/>
+                                        <xs:element type="xs:float" name="age"/>
+                                        <xs:element type="xs:byte" name="addressId"/>
+                                        <xs:element type="xs:byte" name="clothesComplectId"/>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:long" name="id"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Commanders">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Commander" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:string" name="title"/>
+                                        <xs:element type="xs:byte" name="personsId"/>
+                                        <xs:element type="xs:byte" name="squadId"/>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:long" name="id"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Drivers">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Driver" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:byte" name="personsId"/>
+                                        <xs:element type="xs:byte" name="soldierId"/>
+                                        <xs:element type="xs:string" name="driveCategory"/>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:long" name="id"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Vehicles">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Vehicle" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:float" name="year"/>
+                                        <xs:element type="xs:float" name="stockId"/>
+                                        <xs:element type="xs:byte" name="driverId"/>
+                                        <xs:element type="xs:float" name="maxSpeed"/>
+                                        <xs:element type="xs:string" name="vehicleType"/>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:long" name="id"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="Guns">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Gun" maxOccurs="unbounded" minOccurs="0">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element type="xs:float" name="serialNumber"/>
+                                        <xs:element type="xs:float" name="caliber"/>
+                                    </xs:sequence>
+                                    <xs:attribute type="xs:long" name="id"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
             </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Commanders">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Commander" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:string" name="title"/>
-                    <xs:element type="xs:byte" name="personsId"/>
-                    <xs:element type="xs:byte" name="squadId"/>
-                  </xs:sequence>
-                  <xs:attribute type="xs:long" name="id" />
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Drivers">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Driver" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:byte" name="personsId"/>
-                    <xs:element type="xs:byte" name="soldierId"/>
-                    <xs:element type="xs:string" name="driveCategory"/>
-                  </xs:sequence>
-                  <xs:attribute type="xs:long" name="id" />
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Vehicles">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Vehicle" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:float" name="year"/>
-                    <xs:element type="xs:float" name="stockId"/>
-                    <xs:element type="xs:byte" name="driverId"/>
-                    <xs:element type="xs:float" name="maxSpeed"/>
-                    <xs:element type="xs:string" name="vehicleType"/>
-                  </xs:sequence>
-                  <xs:attribute type="xs:long" name="id" />
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Guns">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="Gun" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:float" name="serialNumber"/>
-                    <xs:element type="xs:float" name="caliber"/>
-                  </xs:sequence>
-                  <xs:attribute type="xs:long" name="id" />
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>

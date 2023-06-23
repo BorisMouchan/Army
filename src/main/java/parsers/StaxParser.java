@@ -132,15 +132,15 @@ public class StaxParser {
             }
         }
 
-            for (Person p : personList) {
-                System.out.println(p);
-            }
-            for (Commander commander1 : commanderList) {
-                System.out.println(commander1);
-            }
-            for (Driver driver1 : driverList) {
+        for (Person p : personList) {
+            System.out.println(p);
+        }
+        for (Commander commander1 : commanderList) {
+            System.out.println(commander1);
+        }
+        for (Driver driver1 : driverList) {
             System.out.println(driver1);
         }
-        }
     }
+}
 

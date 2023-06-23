@@ -1,5 +1,8 @@
 package com.solvd.laba.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import parsers.DateAdapter;
 
 import javax.xml.bind.annotation.*;
@@ -13,23 +16,35 @@ import java.util.Objects;
 
 @XmlRootElement(name = "StockName")
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(propOrder = {"id","gunsList","dateLastCheck","stockManagerId","boxCount","gateKeeper"})
+@XmlType(propOrder = {"id", "gunsList", "dateLastCheck", "stockManagerId", "boxCount", "gateKeeper"})
 public class StockName {
     @XmlAttribute(name = "id")
+    @JsonProperty("id")
     private long id;
+
     @XmlElementWrapper(name = "gunsList")
     @XmlElement(name = "Gun", type = Gun.class)
-    private List<Gun> gunsList= new ArrayList<>();
+    @JsonProperty("gunsList")
+    private List<Gun> gunsList = new ArrayList<>();
+
     @XmlJavaTypeAdapter(DateAdapter.class)
+    @JsonProperty("dateLastCheck")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date dateLastCheck;
-    @XmlElement (name = "stockManagerId")
+
+    @JsonProperty("stockManagerId")
+    @XmlElement(name = "stockManagerId")
     private long stockManagerId;
+
+    @JsonProperty("boxCount")
     @XmlElement(name = "boxCount")
     private int boxCount;
+
+    @JsonProperty("gateKeeper")
     @XmlElement(name = "gateKeeper")
     private Soldier gateKeeper;
 
-    public StockName(){
+    public StockName() {
     }
 
     public StockName(long id, List<Gun> gunsList, Date dateLastCheck, long stockManagerID, int boxCount, Soldier gateKeeper) {
@@ -96,8 +111,8 @@ public class StockName {
                 ", gunsList=" + gunsList + "\n" +
                 ", dateLastCheck=" + dateLastCheck + "\n" +
                 ", stockManagerId=" + stockManagerId + "\n" +
-                ", boxCount=" + boxCount + "\n"+
-                ", gateKeeper=" + gateKeeper + "\n"+
+                ", boxCount=" + boxCount + "\n" +
+                ", gateKeeper=" + gateKeeper + "\n" +
                 '}';
     }
 

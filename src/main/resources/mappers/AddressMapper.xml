@@ -1,0 +1,41 @@
+<!DOCTYPE mapper     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solvd.laba.dao.IAddressDAO">
+    <resultMap type="Address" id="AddressResultMap" autoMapping="false">
+        <result property="id" column="id"/>
+        <result property="city" column="city"/>
+        <result property="street" column="street"/>
+    </resultMap>
+    <select id = "getCityByStreet" parameterType = "String" resultMap = "AddressResultMap">
+        <![CDATA[
+        SELECT * FROM addresses WHERE street = #{street};
+        ]]>
+    </select>
+    <select id="getAllAddresses" resultMap = "AddressResultMap">
+        <![CDATA[
+        SELECT * FROM addresses
+        ]]>
+    </select>
+    <select id="getEntityById" parameterType="long" resultMap="AddressResultMap">
+        <![CDATA[
+        SELECT * FROM ADDRESSES WHERE id = #{id};
+        ]]>
+    </select>
+    <insert id="saveAddress" parameterType="Address" >
+        <![CDATA[
+        INSERT into ADDRESSES (city,street) VALUES(#{city},#{street})
+        ]]>
+    </insert>
+    <update id="updateAddress" parameterType="Address">
+        <![CDATA[
+        UPDATE ADDRESSES SET
+        city = #{city},
+        street = #{street}
+        WHERE id=#{id}
+        ]]>
+    </update>
+    <delete id="removeAddress" parameterType = "long">
+        <![CDATA[
+        DELETE from addresses WHERE id = #{id};
+        ]]>
+    </delete>
+</mapper>

@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "gunsList": [
+      {
+        "id": 1,
+        "serialNumber": 1888888,
+        "caliber": 33
+      },
+      {
+        "id": 2,
+        "serialNumber": 1999999,
+        "caliber": 44
+      },
+      {
+        "id": 3,
+        "serialNumber": 1000000,
+        "caliber": 55
+      }
+    ],
+    "dateLastCheck": "2023-06-13",
+    "stockManagerId": 2,
+    "boxCount": 3,
+    "gateKeeper": {
+      "id": 1,
+      "title": "Recruit-officer",
+      "personSoldierId": 1001,
+      "squadSoldierId": 999
+    },
+    "id": 2,
+    "gunsList": [
+      {
+        "id": 1,
+        "serialNumber": 88885,
+        "caliber": 333
+      },
+      {
+        "id": 2,
+        "serialNumber": 188886,
+        "caliber": 334
+      },
+      {
+        "id": 3,
+        "serialNumber": 2000,
+        "caliber": 335
+      }
+    ],
+    "dateLastCheck": "1903-06-13",
+    "stockManagerId": 2,
+    "boxCount": 33,
+    "gateKeeper": {
+      "id": 1,
+      "title": "High Recruit-officer",
+      "personSoldierId": 10001,
+      "squadSoldierId": 10101010
+    }
+  }
+]
+

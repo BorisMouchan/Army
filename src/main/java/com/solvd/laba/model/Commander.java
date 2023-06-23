@@ -2,7 +2,7 @@ package com.solvd.laba.model;
 
 import java.util.Objects;
 
-public class Commander extends Person{
+public class Commander extends Person {
     private long id;
     private String title;
     private long personsId;

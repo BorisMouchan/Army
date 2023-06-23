@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <army xmlns:xs="http://www.w3.org/2001/XMLschema-instance"
-xs:noNamespaceSchemaLocation="army.xsd">
+      xs:noNamespaceSchemaLocation="army.xsd">
     <Persons>
         <Person id="1">
             <name>Bob</name>

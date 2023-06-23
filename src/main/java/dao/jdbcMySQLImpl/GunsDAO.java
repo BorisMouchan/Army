@@ -45,32 +45,32 @@ public class GunsDAO implements IGunsDAO {
 
     @Override
     public Gun getEntityById(long id) {
-    Connection connection = pool.getConnection();
-    Gun result = new Gun();
-    String sql = "SELECT * FROM GUNS WHERE id = (?)";
+        Connection connection = pool.getConnection();
+        Gun result = new Gun();
+        String sql = "SELECT * FROM GUNS WHERE id = (?)";
         try (PreparedStatement pr = connection.prepareStatement(sql)) {
-        pr.setLong(1, id);
-        pr.execute();
-        try (ResultSet rs = pr.getResultSet()) {
-            while (rs.next()) {
-                result.setId(rs.getInt("id"));
-                result.setSerialNumber(rs.getLong("Serial_number"));
-                result.setCaliber(rs.getLong("Caliber"));
+            pr.setLong(1, id);
+            pr.execute();
+            try (ResultSet rs = pr.getResultSet()) {
+                while (rs.next()) {
+                    result.setId(rs.getInt("id"));
+                    result.setSerialNumber(rs.getLong("Serial_number"));
+                    result.setCaliber(rs.getLong("Caliber"));
+                }
+            }
+        } catch (SQLException e) {
+            LOGGER.error(e.getMessage());
+        } finally {
+            if (connection != null) {
+                try {
+                    pool.releaseConnection(connection);
+                } catch (SQLException e) {
+                    LOGGER.error(e.getMessage());
+                }
             }
         }
-    } catch (SQLException e) {
-        LOGGER.error(e.getMessage());
-    } finally {
-        if (connection != null) {
-            try {
-                pool.releaseConnection(connection);
-            } catch (SQLException e) {
-                LOGGER.error(e.getMessage());
-            }
-        }
-    }
         return result;
-}
+    }
 
 
     @Override
@@ -108,7 +108,7 @@ public class GunsDAO implements IGunsDAO {
     @Override
     public void updateEntity(Gun guns) {
         Connection connection = pool.getConnection();
-        String sql = "UPDATE GUNS SET Serial_number = (?), Caliber = (?)" +  "where id=(?)";
+        String sql = "UPDATE GUNS SET Serial_number = (?), Caliber = (?)" + "where id=(?)";
         try {
             PreparedStatement pr = connection.prepareStatement(sql);
             pr.setLong(1, guns.getCaliber());
@@ -119,7 +119,7 @@ public class GunsDAO implements IGunsDAO {
         } catch (SQLException e) {
             LOGGER.error(e.getMessage());
         } finally {
-            if(connection !=null) {
+            if (connection != null) {
                 try {
                     pool.releaseConnection(connection);
                 } catch (SQLException e) {
@@ -153,15 +153,15 @@ public class GunsDAO implements IGunsDAO {
     @Override
     public List<Gun> getGunsByCaliber(long caliber) {
         Connection connection = pool.getConnection();
-        String sql ="SELECT * FROM GUNS where Caliber=(?)";
+        String sql = "SELECT * FROM GUNS where Caliber=(?)";
         List<Gun> resultList = new ArrayList<>();
         try {
             PreparedStatement pr = connection.prepareStatement(sql);
-            pr.setLong(1,caliber);
+            pr.setLong(1, caliber);
             pr.execute();
 
             ResultSet rs = pr.getResultSet();
-            while (rs.next()){
+            while (rs.next()) {
                 Gun gun = new Gun();
                 gun.setId(rs.getLong("id"));
                 gun.setSerialNumber(rs.getLong("Serial_number"));
@@ -171,7 +171,7 @@ public class GunsDAO implements IGunsDAO {
         } catch (SQLException e) {
             LOGGER.error(e.getMessage());
         } finally {
-            if (connection !=null) {
+            if (connection != null) {
                 try {
                     pool.releaseConnection(connection);
                 } catch (SQLException e) {

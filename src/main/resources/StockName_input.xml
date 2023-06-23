@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <StockName id="1">
-    <gunsList >
-        <Gun id="1" >
+    <gunsList>
+        <Gun id="1">
             <serialNumber>44444455555</serialNumber>
             <caliber>44</caliber>
         </Gun>
-        <Gun id="2" >
+        <Gun id="2">
             <serialNumber>77777788888</serialNumber>
             <caliber>88</caliber>
         </Gun>
     </gunsList>
     <dateLastCheck>2020-08-09T00:00:01</dateLastCheck>
-    <stockManagerId> 5</stockManagerId>
+    <stockManagerId>5</stockManagerId>
     <boxCount>10</boxCount>
     <gateKeeper id="99">
         <title>Low Marshall</title>

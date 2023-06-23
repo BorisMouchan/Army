@@ -1,18 +1,20 @@
 package com.solvd.laba.model;
 
+import dao.enums.SpecializationType;
+
 import java.util.Objects;
 
-public class Medic extends Person{
+public class Medic extends Person {
     private long id;
-    private String specialization;
-    private long personId;
+    private SpecializationType specializationType;
+    private long personMedicId;
 
-    public Medic(){
+    public Medic() {
     }
 
-    public Medic(String specialization, long personId) {
-        this.specialization = specialization;
-        this.personId = personId;
+    public Medic(SpecializationType specializationType, long personMedicId) {
+        this.specializationType = specializationType;
+        this.personMedicId = personMedicId;
     }
 
     @Override
@@ -25,20 +27,20 @@ public class Medic extends Person{
         this.id = id;
     }
 
-    public String getSpecialization() {
-        return specialization;
+    public SpecializationType getSpecializationType() {
+        return specializationType;
     }
 
-    public void setSpecialization(String specialization) {
-        this.specialization = specialization;
+    public void setSpecializationType(SpecializationType specializationType) {
+        this.specializationType = specializationType;
     }
 
-    public long getPersonId() {
-        return personId;
+    public long getPersonMedicId() {
+        return personMedicId;
     }
 
-    public void setPersonId(long personId) {
-        this.personId = personId;
+    public void setPersonMedicId(long personMedicId) {
+        this.personMedicId = personMedicId;
     }
 
     @Override
@@ -46,21 +48,21 @@ public class Medic extends Person{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Medic medics = (Medic) o;
-        return id == medics.id && personId == medics.personId && Objects.equals(specialization, medics.specialization);
+        Medic medic = (Medic) o;
+        return id == medic.id && personMedicId == medic.personMedicId && specializationType == medic.specializationType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), id, specialization, personId);
+        return Objects.hash(super.hashCode(), id, specializationType, personMedicId);
     }
 
     @Override
     public String toString() {
         return "Medic{" +
                 "id=" + id +
-                ", specialization='" + specialization + '\'' +
-                ", personId=" + personId +
+                ", specializationType=" + specializationType +
+                ", personMedicId=" + personMedicId +
                 '}';
     }
 }

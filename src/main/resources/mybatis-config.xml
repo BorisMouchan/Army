@@ -1,0 +1,46 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"/>
+
+    <typeAliases>
+        <typeAlias alias="Vehicle" type="com.solvd.laba.model.Vehicle"/>
+        <typeAlias alias="Person" type="com.solvd.laba.model.Person"/>
+        <typeAlias alias="Gun" type="com.solvd.laba.model.Gun"/>
+        <typeAlias alias="Commander" type="com.solvd.laba.model.Commander"/>
+        <typeAlias alias="Address" type="com.solvd.laba.model.Address"/>
+        <typeAlias alias="Medic" type="com.solvd.laba.model.Medic"/>
+    </typeAliases>
+    <typeHandlers>
+        <typeHandler handler="org.apache.ibatis.type.EnumTypeHandler" javaType="dao.enums.SpecializationType"/>
+    </typeHandlers>
+    <environments default = "development">
+        <environment id = "development">
+            <transactionManager type = "JDBC"/>
+
+            <dataSource type = "POOLED">
+                <property name = "driver" value = "${driver}"/>
+                <property name = "url" value = "${url}"/>
+                <property name = "username" value = "${username}"/>
+                <property name = "password" value = "${password}"/>
+            </dataSource>
+
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mappers/AddressMapper.xml"/>
+        <mapper resource="mappers/PersonMapper.xml"/>
+        <mapper resource="mappers/MedicMapper.xml"/>
+
+    </mappers>
+
+
+
+
+
+
+
+</configuration>

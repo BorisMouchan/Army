@@ -2,13 +2,13 @@ package com.solvd.laba.model;
 
 import java.util.Objects;
 
-public class StockManager extends Person{
+public class StockManager extends Person {
 
     private long id;
     private long stockId;
     private long personId;
 
-    public StockManager(){
+    public StockManager() {
     }
 
     public StockManager(long stockId, long personId) {

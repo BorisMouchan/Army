@@ -7,7 +7,7 @@ public class Squad {
     private String squadName;
     private long commanderId;
 
-    public Squad(){
+    public Squad() {
     }
 
     public Squad(String squadName, long commanderId) {

@@ -11,7 +11,7 @@ public class Vehicle {
     private int maxSpeed;
     private String vehicleType;
 
-    public Vehicle(){
+    public Vehicle() {
     }
 
     public Vehicle(int year, long stockId, long driverId, int maxSpeed, String vehicleType) {

@@ -19,7 +19,6 @@ public class MyConnectionPool {
     private static final int INITIAL_POOL_SIZE = 5;
 
 
-
     private MyConnectionPool() {
     }
 
@@ -59,14 +58,12 @@ public class MyConnectionPool {
     public synchronized Connection getConnection() {
         Connection connection = freeConnections.remove(freeConnections.size() - 1);
         usedConnections.add(connection);
-        LOGGER.info("CONNECTION IS GOING...");
         return connection;
     }
 
     public synchronized void releaseConnection(Connection connection) throws SQLException {
         if (usedConnections.remove(connection)) {
             freeConnections.add(connection);
-            LOGGER.info("CONNECTION IS FREE NOW");
         } else {
             throw new SQLException("The connection has already returned or it's not for this pool.");
         }

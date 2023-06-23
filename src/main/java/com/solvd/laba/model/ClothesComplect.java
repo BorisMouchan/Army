@@ -8,7 +8,7 @@ public class ClothesComplect {
     private long stockId;
     private String sizeType;
 
-    ClothesComplect(){
+    ClothesComplect() {
     }
 
     public ClothesComplect(long serialNumber, long stockId, String sizeType) {

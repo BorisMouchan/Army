@@ -1,0 +1,29 @@
+{
+  "id": 1,
+  "gunsList": [
+    {
+      "id": 1,
+      "serialNumber": 1888888,
+      "caliber": 33
+    },
+    {
+      "id": 2,
+      "serialNumber": 1999999,
+      "caliber": 44
+    },
+    {
+      "id": 3,
+      "serialNumber": 1000000,
+      "caliber": 55
+    }
+  ],
+  "dateLastCheck": "2023-06-13",
+  "stockManagerId": 7,
+  "boxCount": 10,
+  "gateKeeper": {
+    "id": 5,
+    "title": "Top-Sergant",
+    "personSoldierId": 22,
+    "squadSoldierId": 33
+  }
+}

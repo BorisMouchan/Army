@@ -1,5 +1,7 @@
 package com.solvd.laba.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.xml.bind.annotation.*;
 
 import java.util.Objects;
@@ -7,18 +9,26 @@ import java.util.Objects;
 @XmlRootElement(name = "Soldier")
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(propOrder = {"id", "title", "personSoldierId", "squadSoldierId"})
+
 public class Soldier {
-    @XmlAttribute(name="id")
+    @JsonProperty("id")
+    @XmlAttribute(name = "id")
     private long id;
-    @XmlElement(name="title")
+
+    @JsonProperty("title")
+    @XmlElement(name = "title")
     private String title;
-    @XmlElement(name="personSoldierId")
+
+    @XmlElement(name = "personSoldierId")
+    @JsonProperty("personSoldierId")
     private long personSoldierId;
-    @XmlElement(name="squadSoldierId")
+
+    @XmlElement(name = "squadSoldierId")
+    @JsonProperty("squadSoldierId")
     private long squadSoldierId;
 
 
-    public Soldier(){
+    public Soldier() {
     }
 
     public Soldier(long id, String title, long personSoldierId, long squadSoldierId) {
@@ -46,7 +56,7 @@ public class Soldier {
         this.title = title;
     }
 
-    public long getPersonSoldierIdId() {
+    public long getPersonSoldierId() {
         return personSoldierId;
     }
 
