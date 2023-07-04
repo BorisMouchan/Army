@@ -1,5 +1,7 @@
 package com.solvd.laba.model;
 
+import builder.PersonBuilder;
+
 import java.util.Objects;
 
 public class Person {

@@ -1,10 +1,14 @@
+import builder.PersonBuilder;
 import com.solvd.laba.model.Address;
+import com.solvd.laba.model.Commander;
 import com.solvd.laba.model.Medic;
 import com.solvd.laba.model.Person;
 import dao.enums.SpecializationType;
 import dao.myBatisImpl.AddressDAO;
 import dao.myBatisImpl.MedicDAO;
 import dao.myBatisImpl.PersonDAO;
+import factory.PersonFactoryImpl;
+import interfaces.PersonFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 
@@ -17,7 +21,32 @@ public class Army {
 //        testJDBCAddressDAO();
 //        testMyBatisAddressDAO();
 //        testMyBatisPersonDAO();
-        testMyBatisMedicDAO();
+//        testMyBatisMedicDAO();
+
+        //===============Builder==============
+
+//        PersonBuilder personBuilder = new PersonBuilder();
+//        Person person = personBuilder
+//                .setId(1)
+//                .setName("Johny")
+//                .setAge(30)
+//                .setAddressId(123)
+//                .setClothesComplectId(456)
+//                .build();
+//        LOGGER.info(person);
+        //==============Factory============
+
+        PersonFactory factory = PersonFactoryImpl.getFactory("person");
+        Person person = factory.createPerson("Igor",1,5,44);
+        LOGGER.info(person);
+
+        PersonFactory commanderFactory = PersonFactoryImpl.getFactory("commander");
+        Person commander = commanderFactory.createCommander("Top",33,55);
+        LOGGER.info(commander);
+
+        PersonFactory driverFactory = PersonFactoryImpl.getFactory("driver");
+        Person driver= driverFactory.createDriver(2,123,"A");
+        LOGGER.info(driver);
     }
 
 //    public static void testJDBCAddressDAO() {
@@ -41,20 +70,14 @@ public class Army {
 //        List<Address> address = addressDAO.getCityByStreet("ul. Pushkina");
 //        LOGGER.info(address);
 //        LOGGER.info(addressDAO.getAll());
-//
 //        addressDAO.getCityByStreet("ul. Werepodorovo");
 //        LOGGER.info(addressDAO.getCityByStreet("ul. Werepodorovo"));
-
-
-
 //        Address addressTestInsert = new Address("Rio de Janeiro", "ul. Depazamanova");
 //        addressDAO.saveEntity(addressTestInsert);
-//
 //        LOGGER.info("An object read from the database: " + addressDAO.getEntityById(11));
-//
 //        addressDAO.removeEntity(16);
 //    }
-
+//
 //    public static void testMyBatisPersonDAO() {
 //        PersonDAO personDAO = new PersonDAO();
 //        Person person = personDAO.getPersonById(4);
@@ -63,21 +86,19 @@ public class Army {
 //        personDAO.updateEntity(person);
 //    }
 
-    public static void testMyBatisMedicDAO(){
-        MedicDAO medicDAO= new MedicDAO();
+//    public static void testMyBatisMedicDAO(){
+//        MedicDAO medicDAO= new MedicDAO();
 //        Medic medicToInsert = new Medic(SpecializationType.Doctor,4);
 //        Medic medicToInsert2 = new Medic(SpecializationType.Nurse,4);
 //        Medic medicToInsert3 = new Medic(SpecializationType.Doctor,4);
 //        medicDAO.saveEntity(medicToInsert2);
 //        medicDAO.saveEntity(medicToInsert3);
-//         ;
+         ;
 //         LOGGER.info(medicDAO.getMedicBySpecialization(SpecializationType.Doctor));
-
-        Medic medicById = medicDAO.getEntityById(3);
-        medicById.setPersonMedicId(3);
-        medicById.setSpecializationType(SpecializationType.Doctor);
-        medicDAO.updateEntity(medicById);
-        LOGGER.info(medicDAO.getAll());
-
-    }
+//        Medic medicById = medicDAO.getEntityById(3);
+//        medicById.setPersonMedicId(3);
+//        medicById.setSpecializationType(SpecializationType.Doctor);
+//        medicDAO.updateEntity(medicById);
+//        LOGGER.info(medicDAO.getAll());
+//    }
 }

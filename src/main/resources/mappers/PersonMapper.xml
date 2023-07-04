@@ -11,7 +11,7 @@
     <insert id="saveEntity" parameterType="Person">
         <![CDATA[
         INSERT into PERSONS (name,age,address_id,clothes_complect_id) values (#{name},#{age},#{addressId},#{clothesComplectId});
-]]>
+        ]]>
     </insert>
     <select id="getEntityById" parameterType="long" resultMap="PersonResultMap">
         <![CDATA[
@@ -19,7 +19,7 @@
         ]]>
     </select>
     <select id="getAll" resultMap="PersonResultMap">
-    <![CDATA[
+        <![CDATA[
         SELECT * FROM PERSONS;
         ]]>
     </select>

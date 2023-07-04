@@ -21,7 +21,7 @@ public class JSONTest {
     private static final Logger LOGGER = LogManager.getLogger(JSONTest.class);
 
     public static void main(String[] args) {
-        ObjectMapper objectMapper = new ObjectMapper();
+
         List<Gun> guns = new ArrayList<>();
         guns.add(new Gun(1, 1888888, 33));
         guns.add(new Gun(2, 1999999, 44));
@@ -36,6 +36,14 @@ public class JSONTest {
 
         StockName firstStock = new StockName(1, guns, date, 007, 10, soldierGateKepper);
 
+        JSONserialize(firstStock);
+        JSONdeserialize();
+
+
+
+    }
+    public static void JSONserialize(StockName firstStock){
+        ObjectMapper objectMapper = new ObjectMapper();
         File file = new File(System.getProperty("user.dir") + "/src/main/resources/stocknameToJSON.json");
         try {
             objectMapper.writeValue(file, firstStock);
@@ -44,6 +52,9 @@ public class JSONTest {
         }
         LOGGER.info("Json writing  is done.");
 
+    }
+    public static void JSONdeserialize(){
+        ObjectMapper objectMapper = new ObjectMapper();
         File fileInput = new File(System.getProperty("user.dir") + "/src/main/resources/stocknameparse.json");
         JavaType javaType = objectMapper.getTypeFactory().constructCollectionType(List.class, StockName.class);
 
@@ -57,6 +68,5 @@ public class JSONTest {
             e.printStackTrace();
         }
         LOGGER.info("Json reading  is done.");
-
     }
 }
